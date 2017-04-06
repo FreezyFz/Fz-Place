@@ -1,5 +1,4 @@
 var express = require('express');
-var bodyParser = require('body-parser');
 var app = express();
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false});
@@ -36,16 +35,5 @@ app.get('/page5', function(req, res) {
 	res.render('page5');
 });
 
-app.post('/form', urlencodedParser, function(req,res){
-	res.send("Thank you");
-	console.log('Name is ' + req.body.name);
-	console.log('Age is ' + req.body.age);
-	console.log('Gender is ' + req.body.sex);
-	console.log('Most like ' + req.body.like);
-})
-
-app.get('*', function(req, res) {
-	res.render('err');
-});
 
 app.listen(port);
